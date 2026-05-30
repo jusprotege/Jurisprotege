@@ -14,7 +14,6 @@ jobs:
   coletar-e-publicar:
     name: Coletar notícias e legislação
     runs-on: ubuntu-latest
-
     steps:
       - name: 📥 Checkout do repositório
         uses: actions/checkout@v4
