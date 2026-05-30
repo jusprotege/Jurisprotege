@@ -1,11 +1,8 @@
 name: 🔄 Atualização Diária — JurisProtege
 
 on:
-  # Roda todo dia às 6h (horário de Brasília = 9h UTC)
   schedule:
     - cron: '0 9 * * *'
-
-  # Permite rodar manualmente pelo painel do GitHub
   workflow_dispatch:
     inputs:
       motivo:
@@ -19,34 +16,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Baixa o código do repositório
       - name: 📥 Checkout do repositório
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      # 2. Configura Python
       - name: 🐍 Configurar Python 3.11
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-          cache: 'pip'
 
-      # 3. Instala dependências
       - name: 📦 Instalar dependências
-        run: |
-          pip install --upgrade pip
-          pip install requests beautifulsoup4 feedparser
+        run: pip install requests beautifulsoup4 feedparser
 
-      # 4. Cria a pasta data/ se não existir
       - name: 📁 Garantir pasta data/
         run: mkdir -p data
 
-      # 5. Executa o script de coleta
       - name: 🤖 Executar coleta de dados
         run: python scripts/coletar.py
 
-      # 6. Faz commit e push dos arquivos atualizados
       - name: 💾 Salvar e publicar atualizações
         run: |
           git config user.name "JurisProtege Bot"
@@ -57,7 +45,6 @@ jobs:
             git push
           )
 
-      # 7. Resumo no log do GitHub
       - name: 📊 Resumo da execução
         if: always()
         run: |
