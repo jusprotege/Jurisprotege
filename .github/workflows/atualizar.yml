@@ -1,57 +1,30 @@
-name: 🔄 Atualização Diária — JurisProtege
+name: Atualização Diária JurisProtege
 
 on:
   schedule:
     - cron: '0 9 * * *'
   workflow_dispatch:
-    inputs:
-      motivo:
-        description: 'Motivo da execução manual (opcional)'
-        required: false
-        default: 'Atualização manual'
 
 jobs:
-  coletar-e-publicar:
-    name: Coletar notícias e legislação
+  coletar:
     runs-on: ubuntu-latest
     steps:
-      - name: 📥 Checkout do repositório
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: 🐍 Configurar Python 3.11
-        uses: actions/setup-python@v5
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
-      - name: 📦 Instalar dependências
-        run: pip install requests beautifulsoup4 feedparser
+      - run: pip install requests beautifulsoup4 feedparser
 
-      - name: 📁 Garantir pasta data/
-        run: mkdir -p data
+      - run: mkdir -p data
 
-      - name: 🤖 Executar coleta de dados
-        run: python scripts/coletar.py
+      - run: python scripts/coletar.py
 
-      - name: 💾 Salvar e publicar atualizações
-        run: |
+      - run: |
           git config user.name "JurisProtege Bot"
           git config user.email "bot@jurisprotege.netlify.app"
           git add data/noticias.json data/legislacao.json
-          git diff --staged --quiet && echo "⏭️ Nenhuma mudança detectada" || (
-            git commit -m "🔄 Atualização automática — $(date '+%d/%m/%Y %H:%M') (Brasília)" &&
-            git push
-          )
-
-      - name: 📊 Resumo da execução
-        if: always()
-        run: |
-          echo "## ✅ JurisProtege — Atualização Concluída" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "- **Data:** $(date '+%d/%m/%Y %H:%M') UTC" >> $GITHUB_STEP_SUMMARY
-          echo "- **Arquivos gerados:** data/noticias.json, data/legislacao.json" >> $GITHUB_STEP_SUMMARY
-          if [ -f data/noticias.json ]; then
-            TOTAL=$(python3 -c "import json; d=json.load(open('data/noticias.json')); print(d.get('total',0))")
-            echo "- **Notícias coletadas:** $TOTAL" >> $GITHUB_STEP_SUMMARY
-          fi
+          git diff --staged --quiet || git commit -m "Atualização $(date '+%d/%m/%Y')" && git push
