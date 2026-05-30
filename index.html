@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JurisProtege — Lei Maria da Penha · Jurisprudência</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--cr:#8B1A1A;--crl:#B22222;--crp:#F5E6E6;--gd:#C9973A;--gdl:#E8C36A;--ink:#1A1A2E;--inkm:#2D2D4A;--sl:#4A4A6A;--sv:#8A8AAA;--pg:#FAF7F2;--wh:#FFFFFF;--bd:rgba(139,26,26,0.15);--sh:rgba(26,26,46,0.12)}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:'Source Serif 4',Georgia,serif;background:var(--pg);color:var(--ink);overflow-x:hidden}
+/* HEADER */
+header{background:var(--ink);border-bottom:3px solid var(--cr);position:sticky;top:0;z-index:200;box-shadow:0 2px 20px var(--sh)}
+.hi{max-width:1320px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem}
+.logo{display:flex;align-items:center;gap:.75rem;padding:.8rem 0;text-decoration:none}
+.logo-icon{width:38px;height:38px;background:var(--cr);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:1.15rem;box-shadow:0 0 0 2px rgba(201,151,58,.4)}
+.logo-title{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:#fff;letter-spacing:.02em}
+.logo-sub{font-size:.58rem;color:var(--gdl);letter-spacing:.12em;text-transform:uppercase}
+nav{display:flex;gap:.1rem}
+nav a{color:rgba(255,255,255,.65);text-decoration:none;font-size:.72rem;letter-spacing:.05em;padding:.4rem .7rem;border-radius:4px;transition:all .2s;text-transform:uppercase}
+nav a:hover{color:#fff;background:rgba(255,255,255,.08)}nav a.active{color:var(--gdl)}
+.hbtns{display:flex;gap:.4rem;align-items:center}
+.btn-ig{background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);color:#fff;border:none;padding:.42rem .9rem;border-radius:4px;cursor:pointer;font-size:.72rem;font-weight:600;letter-spacing:.04em;transition:opacity .2s}
+.btn-ig:hover{opacity:.85}
+.btn-buscar{background:var(--cr);color:#fff;border:none;padding:.42rem .9rem;border-radius:4px;cursor:pointer;font-size:.72rem;font-weight:600;transition:background .2s}
+.btn-buscar:hover{background:var(--crl)}
+/* TABS */
+.tabs-bar{background:var(--inkm);border-bottom:1px solid rgba(255,255,255,.07)}
+.tabs-inner{max-width:1320px;margin:0 auto;display:flex;padding:0 1.5rem;overflow-x:auto}
+.tab-btn{color:rgba(255,255,255,.5);background:none;border:none;padding:.7rem 1rem;cursor:pointer;font-family:'Source Serif 4',serif;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;border-bottom:2px solid transparent;transition:all .2s;white-space:nowrap}
+.tab-btn:hover{color:rgba(255,255,255,.8)}.tab-btn.active{color:var(--gdl);border-bottom-color:var(--gdl)}
+/* PANELS */
+.tab-panel{display:none}.tab-panel.active{display:block}
+/* HERO */
+.hero{background:linear-gradient(135deg,var(--ink) 0%,var(--inkm) 50%,#1e1e3a 100%);padding:3.5rem 2rem 3rem;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(139,26,26,.2) 0%,transparent 60%),radial-gradient(ellipse at 70% 30%,rgba(201,151,58,.1) 0%,transparent 50%)}
+.hero-label{display:inline-flex;align-items:center;gap:.5rem;background:rgba(139,26,26,.3);border:1px solid rgba(139,26,26,.5);color:var(--gdl);padding:.28rem .85rem;border-radius:20px;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:1.1rem;position:relative}
+.dot{width:6px;height:6px;border-radius:50%;background:#4CAF50;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(1.7rem,3.5vw,2.7rem);color:#fff;font-weight:700;line-height:1.2;margin-bottom:.7rem;position:relative}
+.hero h1 span{color:var(--gdl)}
+.hero p{color:rgba(255,255,255,.6);font-size:.9rem;max-width:560px;margin:0 auto 2rem;line-height:1.7;font-style:italic;position:relative}
+.srch-box{max-width:680px;margin:0 auto;position:relative;z-index:1}
+.srch-row{display:flex;border-radius:6px;overflow:hidden;box-shadow:0 4px 30px rgba(0,0,0,.4),0 0 0 1px rgba(201,151,58,.3)}
+.srch-row input{flex:1;padding:.85rem 1rem;border:none;outline:none;font-family:'Source Serif 4',serif;font-size:.88rem;color:var(--ink);background:#fff}
+.srch-row select{border:none;border-left:1px solid #e0ddd8;padding:0 .85rem;outline:none;font-family:'Source Serif 4',serif;font-size:.78rem;color:var(--sl);background:#f8f5f0;cursor:pointer}
+.srch-row button{background:var(--cr);color:#fff;border:none;padding:0 1.4rem;cursor:pointer;font-size:.82rem;font-family:'Source Serif 4',serif;font-weight:600;transition:background .2s;white-space:nowrap}
+.srch-row button:hover{background:var(--crl)}
+.srch-tags{display:flex;flex-wrap:wrap;gap:.38rem;justify-content:center;margin-top:.8rem;position:relative}
+.tag{background:rgba(255,255,255,.08);color:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.15);padding:.22rem .62rem;border-radius:20px;font-size:.7rem;cursor:pointer;transition:all .2s}
+.tag:hover{background:rgba(139,26,26,.3);color:var(--gdl);border-color:rgba(139,26,26,.5)}
+/* STATS */
+.stats-bar{background:#fff;border-bottom:1px solid var(--bd);padding:.8rem 1.5rem}
+.stats-inner{max-width:1320px;margin:0 auto;display:flex;gap:2rem;align-items:center;flex-wrap:wrap}
+.stat-num{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--cr)}
+.stat-label{font-size:.67rem;color:var(--sv);letter-spacing:.04em;text-transform:uppercase}
+.stat-div{width:1px;height:22px;background:var(--bd)}
+.last-upd{margin-left:auto;font-size:.7rem;color:var(--sv);display:flex;align-items:center;gap:.35rem}
+/* LAYOUT */
+.main{max-width:1320px;margin:0 auto;padding:1.75rem 1.5rem;display:grid;grid-template-columns:1fr 310px;gap:2rem}
+.sec-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:.9rem}
+.sec-title{font-family:'Playfair Display',serif;font-size:.98rem;color:var(--ink);font-weight:600;display:flex;align-items:center;gap:.5rem}
+.sec-title::before{content:'';display:block;width:3px;height:1em;background:var(--cr);border-radius:2px}
+.see-all{font-size:.7rem;color:var(--cr);text-decoration:none;letter-spacing:.05em;text-transform:uppercase}
+.see-all:hover{text-decoration:underline}
+/* CARDS */
+.cards-list{display:flex;flex-direction:column;gap:.8rem}
+.card{background:#fff;border:1px solid var(--bd);border-radius:6px;overflow:hidden;transition:box-shadow .2s,transform .15s;cursor:pointer}
+.card:hover{box-shadow:0 4px 20px rgba(139,26,26,.1);transform:translateY(-1px)}
+.card-hdr{padding:.75rem .95rem .4rem;display:flex;align-items:flex-start;gap:.6rem}
+.tbadge{padding:.16rem .48rem;border-radius:3px;font-family:'JetBrains Mono',monospace;font-size:.62rem;font-weight:500;letter-spacing:.04em;white-space:nowrap;flex-shrink:0;margin-top:2px}
+.b-stj{background:#EEF2FF;color:#3730A3;border:1px solid #C7D2FE}
+.b-stf{background:#FEF3C7;color:#92400E;border:1px solid #FDE68A}
+.b-news{background:#E8F5E9;color:#1B5E20;border:1px solid #A5D6A7}
+.b-cam{background:#E3F2FD;color:#0D47A1;border:1px solid #90CAF9}
+.b-sen{background:#F3E5F5;color:#4A148C;border:1px solid #CE93D8}
+.card-meta{flex:1}
+.card-title{font-family:'Playfair Display',serif;font-size:.9rem;font-weight:600;color:var(--ink);line-height:1.33;margin-bottom:.16rem}
+.card-info{font-size:.65rem;color:var(--sv);font-family:'JetBrains Mono',monospace;display:flex;gap:.6rem;flex-wrap:wrap}
+.card-body{padding:0 .95rem .75rem}
+.card-excerpt{font-size:.82rem;line-height:1.58;color:var(--sl);border-left:2px solid var(--crp);padding-left:.65rem;font-style:italic}
+.card-foot{padding:.5rem .95rem;background:#FAFAF8;border-top:1px solid var(--bd);display:flex;align-items:center;gap:.38rem;flex-wrap:wrap}
+.ttag{font-size:.65rem;padding:.16rem .52rem;border-radius:20px;letter-spacing:.03em}
+.t-med{background:#E0F2F1;color:#00695C}.t-pri{background:#FCE4EC;color:#880E4F}
+.t-ind{background:#F3E5F5;color:#6A1B9A}.t-com{background:#E3F2FD;color:#1565C0}
+.t-lei{background:#FFF3E0;color:#E65100}.t-dan{background:#F1F8E9;color:#33691E}
+.card-acts{margin-left:auto;display:flex;gap:.32rem}
+.btn-sm{font-size:.65rem;padding:.22rem .6rem;border-radius:3px;cursor:pointer;font-family:'Source Serif 4',serif;letter-spacing:.03em;border:1px solid transparent;transition:all .15s}
+.btn-ol{border-color:var(--bd);color:var(--sl);background:transparent}.btn-ol:hover{border-color:var(--cr);color:var(--cr);background:var(--crp)}
+.btn-ps{background:var(--cr);color:#fff}.btn-ps:hover{background:var(--crl)}
+.btn-ig-s{background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);color:#fff}
+/* FILTERS */
+.filters{display:flex;gap:.38rem;flex-wrap:wrap;margin-bottom:.9rem}
+.fil-btn{font-size:.7rem;padding:.28rem .75rem;border-radius:20px;cursor:pointer;font-family:'Source Serif 4',serif;letter-spacing:.03em;border:1px solid var(--bd);background:#fff;color:var(--sl);transition:all .15s}
+.fil-btn:hover{border-color:var(--cr);color:var(--cr)}.fil-btn.active{background:var(--cr);color:#fff;border-color:var(--cr)}
+/* AI RESULT */
+#ai-result{display:none;background:#fff;border:1px solid rgba(139,26,26,.3);border-radius:6px;overflow:hidden;margin-bottom:1.1rem}
+.ai-hdr{background:var(--ink);padding:.6rem .95rem;display:flex;align-items:center;gap:.45rem}
+.ai-ttl{color:var(--gdl);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600}
+.ai-load{padding:1.1rem .95rem;color:var(--sl);font-style:italic;font-size:.85rem;display:flex;align-items:center;gap:.65rem}
+.ai-cnt{padding:1rem .95rem}
+.ai-cnt h3{font-family:'Playfair Display',serif;font-size:.92rem;color:var(--ink);margin-bottom:.6rem}
+.ai-cnt p{font-size:.82rem;line-height:1.62;color:var(--sl);margin-bottom:.6rem}
+.ai-decs{list-style:none;display:flex;flex-direction:column;gap:.45rem;margin-top:.38rem}
+.ai-di{padding:.6rem .7rem;background:var(--pg);border-radius:4px;border-left:3px solid var(--cr);font-size:.8rem;line-height:1.52;color:var(--sl)}
+.ai-di strong{display:block;color:var(--ink);font-family:'Playfair Display',serif;margin-bottom:.12rem}
+.ai-disc{font-size:.68rem;color:var(--sv);border-top:1px solid var(--bd);padding-top:.6rem;margin-top:.6rem;font-style:italic}
+.slbl{font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cr);font-weight:600;margin:.6rem 0 .32rem}
+/* SIDEBAR */
+.sidebar{display:flex;flex-direction:column;gap:1.1rem}
+.widget{background:#fff;border:1px solid var(--bd);border-radius:6px;overflow:hidden}
+.wgt-hdr{background:var(--ink);padding:.6rem .85rem;display:flex;align-items:center;gap:.42rem}
+.wgt-ttl{color:#fff;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600}
+.wgt-body{padding:.8rem}
+.tl-item{display:flex;gap:.6rem;padding:.6rem 0;border-bottom:1px solid var(--bd)}
+.tl-item:last-child{border-bottom:none;padding-bottom:0}
+.tl-yr{font-family:'JetBrains Mono',monospace;font-size:.65rem;color:#fff;background:var(--cr);padding:.16rem .35rem;border-radius:3px;height:fit-content;white-space:nowrap}
+.tl-t{font-size:.78rem;font-weight:600;color:var(--ink);line-height:1.3;margin-bottom:.1rem}
+.tl-d{font-size:.7rem;color:var(--sv);line-height:1.35}
+.canal-item{display:flex;align-items:center;gap:.6rem;padding:.55rem 0;border-bottom:1px solid var(--bd)}
+.canal-item:last-child{border-bottom:none;padding-bottom:0}
+.canal-num{font-family:'JetBrains Mono',monospace;font-size:.95rem;font-weight:500;color:var(--cr);min-width:46px}
+.canal-name{font-size:.78rem;font-weight:600;color:var(--ink)}
+.canal-desc{font-size:.68rem;color:var(--sv)}
+.c24{font-size:.6rem;background:#E8F5E9;color:#2E7D32;padding:.1rem .35rem;border-radius:3px;font-weight:600}
+.leg-it{padding:.55rem 0;border-bottom:1px solid var(--bd)}
+.leg-it:last-child{border-bottom:none}
+.leg-num{font-family:'JetBrains Mono',monospace;font-size:.64rem;color:var(--cr);margin-bottom:.06rem}
+.leg-name{font-size:.77rem;color:var(--ink);font-weight:600;line-height:1.3}
+.leg-desc-s{font-size:.68rem;color:var(--sv);line-height:1.3}
+.bol-item{padding:.55rem 0;border-bottom:1px solid var(--bd)}
+.bol-item:last-child{border-bottom:none}
+.bol-date{font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--sv);margin-bottom:.16rem}
+.bol-title{font-size:.78rem;color:var(--ink);font-weight:600;line-height:1.3;margin-bottom:.1rem}
+.bol-link{font-size:.68rem;color:var(--cr);text-decoration:none}
+.bol-link:hover{text-decoration:underline}
+/* NEWS/LEG */
+.src-filter{display:flex;gap:.38rem;flex-wrap:wrap;margin-bottom:.9rem}
+.src-tag{font-size:.7rem;padding:.25rem .7rem;border-radius:20px;cursor:pointer;border:1px solid var(--bd);background:#fff;color:var(--sl);transition:all .15s;font-family:'Source Serif 4',serif}
+.src-tag:hover{border-color:var(--cr);color:var(--cr)}.src-tag.active{background:var(--cr);color:#fff;border-color:var(--cr)}
+.load-box{padding:1.75rem;text-align:center;color:var(--sv);font-style:italic;font-size:.85rem;display:flex;align-items:center;justify-content:center;gap:.65rem}
+/* MEDIDÔMETRO WIDGET */
+.med-widget{background:linear-gradient(135deg,#3A0A0A,#8B1A1A);border-radius:6px;padding:1.1rem;color:#fff;text-align:center;cursor:pointer;transition:opacity .2s;text-decoration:none;display:block}
+.med-widget:hover{opacity:.9}
+.med-widget-label{font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gdl);margin-bottom:.4rem}
+.med-widget-num{font-family:'JetBrains Mono',monospace;font-size:2.2rem;font-weight:600;color:#fff;line-height:1;margin-bottom:.25rem}
+.med-widget-sub{font-size:.65rem;color:rgba(255,255,255,.5);line-height:1.4}
+.med-widget-badge{display:inline-flex;align-items:center;gap:.3rem;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);padding:.15rem .5rem;border-radius:10px;font-size:.58rem;color:rgba(255,255,255,.6);margin-top:.5rem;letter-spacing:.06em}
+/* INSTAGRAM MODAL */
+.ig-ov{display:none;position:fixed;inset:0;background:rgba(26,26,46,.8);z-index:300;align-items:center;justify-content:center;padding:1rem}
+.ig-ov.open{display:flex}
+.ig-modal{background:#fff;border-radius:10px;max-width:860px;width:100%;max-height:90vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.5);display:grid;grid-template-columns:1fr 1fr}
+.ig-left{padding:1.4rem;border-right:1px solid var(--bd)}
+.ig-right{padding:1.4rem;background:var(--pg)}
+.ig-sec-t{font-family:'Playfair Display',serif;font-size:.95rem;color:var(--ink);font-weight:700;margin-bottom:.9rem}
+.ig-ctrl label{display:block;font-size:.7rem;color:var(--sl);margin-bottom:.25rem;margin-top:.75rem;letter-spacing:.04em;text-transform:uppercase}
+.ig-ctrl input,.ig-ctrl select{width:100%;padding:.55rem .7rem;border:1px solid var(--bd);border-radius:4px;font-family:'Source Serif 4',serif;font-size:.82rem;color:var(--ink);background:#fff;outline:none}
+.ig-ctrl input:focus,.ig-ctrl select:focus{border-color:var(--cr)}
+.fmt-toggle{display:flex;gap:.4rem}
+.fmt-btn{flex:1;padding:.45rem;border:1px solid var(--bd);border-radius:4px;cursor:pointer;font-size:.72rem;font-family:'Source Serif 4',serif;background:#fff;color:var(--sl);text-align:center;transition:all .15s}
+.fmt-btn.active{background:var(--cr);color:#fff;border-color:var(--cr)}
+.btn-gen{width:100%;margin-top:.9rem;background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);color:#fff;border:none;padding:.7rem;border-radius:6px;cursor:pointer;font-family:'Source Serif 4',serif;font-size:.84rem;font-weight:600;transition:opacity .2s}
+.btn-gen:hover{opacity:.88}
+.btn-cp{width:100%;margin-top:.65rem;background:var(--ink);color:#fff;border:none;padding:.55rem;border-radius:4px;cursor:pointer;font-family:'Source Serif 4',serif;font-size:.78rem;transition:background .2s}
+.btn-cp:hover{background:var(--inkm)}
+.slide-prev{border-radius:7px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.15);margin-bottom:.45rem}
+.slide-c{padding:1.1rem;min-height:130px;display:flex;flex-direction:column;justify-content:space-between;position:relative}
+.slide-logo{font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:.65;margin-bottom:.4rem}
+.slide-lbl{font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;opacity:.65;margin-bottom:.3rem}
+.slide-t{font-family:'Playfair Display',serif;font-size:.88rem;font-weight:700;line-height:1.3;margin-bottom:.35rem}
+.slide-b{font-size:.68rem;line-height:1.45;opacity:.82}
+.slide-f{font-size:.58rem;opacity:.55;margin-top:.4rem;letter-spacing:.05em}
+.slide-n{position:absolute;top:.65rem;right:.65rem;font-size:.58rem;opacity:.45;font-family:'JetBrains Mono',monospace}
+.cap-box{background:var(--pg);border:1px solid var(--bd);border-radius:5px;padding:.75rem;margin-top:.9rem}
+.cap-lbl{font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:var(--sv);margin-bottom:.35rem}
+.cap-txt{font-size:.75rem;line-height:1.55;color:var(--ink);white-space:pre-wrap;word-break:break-word;min-height:55px}
+/* MODAL DECISÃO */
+.mod-ov{display:none;position:fixed;inset:0;background:rgba(26,26,46,.7);z-index:250;align-items:center;justify-content:center;padding:1rem}
+.mod-ov.open{display:flex}
+.modal{background:#fff;border-radius:8px;max-width:680px;width:100%;max-height:85vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+.mod-hdr{background:var(--ink);padding:1rem 1.3rem;display:flex;align-items:flex-start;justify-content:space-between;position:sticky;top:0}
+.mod-badge{font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--gdl);margin-bottom:.3rem}
+.mod-title{font-family:'Playfair Display',serif;font-size:.95rem;color:#fff;line-height:1.3}
+.mod-close{background:none;border:none;color:rgba(255,255,255,.5);font-size:1.3rem;cursor:pointer;padding:0;line-height:1}
+.mod-close:hover{color:#fff}
+.mod-body{padding:1.25rem}
+.mod-sec{margin-bottom:1rem}
+.mod-sec-t{font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cr);font-weight:600;margin-bottom:.42rem}
+.mod-text{font-size:.84rem;line-height:1.62;color:var(--sl)}
+.mod-ementa{background:var(--pg);border-left:3px solid var(--cr);padding:.75rem .85rem;font-style:italic;font-size:.82rem;line-height:1.62;color:var(--sl);border-radius:0 4px 4px 0}
+/* SPINNER */
+.spin{display:inline-block;width:13px;height:13px;border:2px solid rgba(201,151,58,.3);border-top-color:var(--gdl);border-radius:50%;animation:sp .7s linear infinite;flex-shrink:0}
+@keyframes sp{to{transform:rotate(360deg)}}
+.ldots::after{content:'';animation:ld 1.2s steps(4,end) infinite}
+@keyframes ld{0%,20%{content:''}40%{content:'.'}60%{content:'..'}80%,100%{content:'...'}}
+/* VÍTIMAS */
+.direito-card{background:#fff;border:1px solid var(--bd);border-radius:8px;padding:1.1rem;transition:box-shadow .2s}
+.direito-card:hover{box-shadow:0 3px 15px rgba(139,26,26,.1)}
+.direito-icon{font-size:1.4rem;margin-bottom:.4rem}
+.direito-title{font-size:.88rem;font-weight:700;color:var(--ink);margin-bottom:.3rem}
+.direito-text{font-size:.78rem;color:var(--sl);line-height:1.6}
+footer{background:var(--ink);color:rgba(255,255,255,.42);padding:1.6rem;margin-top:3rem;border-top:3px solid var(--cr);text-align:center;font-size:.72rem;line-height:1.65}
+footer strong{color:var(--gdl)}
+@media(max-width:960px){.main{grid-template-columns:1fr}.sidebar{order:-1}.ig-modal{grid-template-columns:1fr}}
+@media(max-width:600px){.stats-inner{gap:.85rem}.stat-div{display:none}.srch-row{flex-direction:column}.srch-row select{border-left:none;border-top:1px solid #e0ddd8;padding:.6rem}nav{display:none}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hi">
+    <a href="#" class="logo">
+      <div class="logo-icon">⚖️</div>
+      <div><div class="logo-title">JurisProtege</div><div class="logo-sub">Lei Maria da Penha · Jurisprudência</div></div>
+    </a>
+    <nav>
+      <a href="#" class="active" onclick="showTab('juris',this);return false">Jurisprudência</a>
+      <a href="#" onclick="showTab('noticias',this);return false">Notícias</a>
+      <a href="#" onclick="showTab('legislacao',this);return false">Legislação</a>
+      <a href="#" onclick="showTab('medidometro',this);return false">Medidômetro</a>
+      <a href="#" onclick="showTab('vitimas',this);return false">Para Vítimas</a>
+    </nav>
+    <div class="hbtns">
+      <button class="btn-ig" onclick="openIgModal(null)">📸 Post Instagram</button>
+      <button class="btn-buscar" onclick="openSrch()">🔍 Busca IA</button>
+    </div>
+  </div>
+</header>
+
+<div class="tabs-bar">
+  <div class="tabs-inner">
+    <button class="tab-btn active" id="tab-juris"       onclick="showTab('juris',this)">⚖️ Jurisprudência</button>
+    <button class="tab-btn"        id="tab-noticias"    onclick="showTab('noticias',this)">📰 Notícias do Dia</button>
+    <button class="tab-btn"        id="tab-legislacao"  onclick="showTab('legislacao',this)">📋 Legislação</button>
+    <button class="tab-btn"        id="tab-medidometro" onclick="showTab('medidometro',this)">🌡️ Medidômetro</button>
+    <button class="tab-btn"        id="tab-vitimas"     onclick="showTab('vitimas',this)">🆘 Para Vítimas</button>
+  </div>
+</div>
+
+<!-- ══════════════════ JURISPRUDÊNCIA ══════════════════ -->
+<div class="tab-panel active" id="panel-juris">
+  <section class="hero">
+    <div>
+      <div class="hero-label"><span class="dot"></span>Atualizado diariamente via IA · STJ & STF</div>
+      <h1>Jurisprudência em<br><span>Violência Doméstica</span></h1>
+      <p>Monitoramento contínuo das decisões dos Tribunais Superiores sobre a Lei Maria da Penha e proteção às vítimas.</p>
+      <div class="srch-box">
+        <div class="srch-row">
+          <input type="text" id="hero-search" placeholder="Ex: medida protetiva, prisão preventiva, feminicídio…" onkeydown="if(event.key==='Enter')runSearch()">
+          <select id="trib-sel"><option value="ambos">STJ + STF</option><option value="stj">Apenas STJ</option><option value="stf">Apenas STF</option></select>
+          <button onclick="runSearch()">Buscar</button>
+        </div>
+        <div class="srch-tags">
+          <span class="tag" onclick="setQ('medida protetiva de urgência')">Medidas Protetivas</span>
+          <span class="tag" onclick="setQ('prisão preventiva Lei Maria da Penha')">Prisão Preventiva</span>
+          <span class="tag" onclick="setQ('indenização dano moral violência doméstica')">Dano Moral</span>
+          <span class="tag" onclick="setQ('competência Juizado Violência Doméstica')">Competência</span>
+          <span class="tag" onclick="setQ('feminicídio qualificadora')">Feminicídio</span>
+          <span class="tag" onclick="setQ('violência psicológica crime autônomo')">Viol. Psicológica</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="stats-bar">
+    <div class="stats-inner">
+      <div><div class="stat-num">4.817</div><div class="stat-label">Decisões indexadas</div></div>
+      <div class="stat-div"></div>
+      <div><div class="stat-num">312</div><div class="stat-label">Acórdãos STJ</div></div>
+      <div class="stat-div"></div>
+      <div><div class="stat-num">89</div><div class="stat-label">Decisões STF</div></div>
+      <div class="stat-div"></div>
+      <div><div class="stat-num">18</div><div class="stat-label">Súmulas aplicáveis</div></div>
+      <div class="last-upd">🕐 Última atualização: <strong id="lu-time"></strong></div>
+    </div>
+  </div>
+  <div class="main">
+    <div>
+      <div id="ai-result">
+        <div class="ai-hdr"><span>🤖</span><span class="ai-ttl">Análise Jurisprudencial — IA</span></div>
+        <div id="ai-body" class="ai-load"><span class="spin"></span> Consultando STJ e STF<span class="ldots"></span></div>
+      </div>
+      <div class="filters">
+        <button class="fil-btn active" onclick="filterCards(this,'todos')">Todos</button>
+        <button class="fil-btn" onclick="filterCards(this,'medidas')">Medidas Protetivas</button>
+        <button class="fil-btn" onclick="filterCards(this,'prisao')">Prisão</button>
+        <button class="fil-btn" onclick="filterCards(this,'indenizacao')">Indenização</button>
+        <button class="fil-btn" onclick="filterCards(this,'competencia')">Competência</button>
+        <button class="fil-btn" onclick="filterCards(this,'lei')">Lei Maria da Penha</button>
+      </div>
+      <div class="sec-hdr"><div class="sec-title">Decisões Recentes</div><a href="#" class="see-all">Ver todas →</a></div>
+      <div class="cards-list" id="cards-list">
+        <div class="card" data-temas="medidas lei" data-idx="0">
+          <div class="card-hdr"><span class="tbadge b-stj">STJ · 6ª T.</span><div class="card-meta"><div class="card-title">Medida protetiva de urgência — Desnecessidade de inquérito policial ou ação penal em curso</div><div class="card-info"><span>RHC 183.410/SP</span><span>Min. Laurita Vaz</span><span>22 abr. 2026</span></div></div></div>
+          <div class="card-body"><div class="card-excerpt">A concessão de medidas protetivas independe de inquérito policial instaurado ou ação penal em curso, bastando indícios de violência doméstica contra a mulher.</div></div>
+          <div class="card-foot"><span class="ttag t-med">Medidas Protetivas</span><span class="ttag t-lei">Lei Maria da Penha</span><div class="card-acts"><button class="btn-sm btn-ol" onclick="event.stopPropagation();copyRef('RHC 183.410/SP')">Copiar ref.</button><button class="btn-sm btn-ig-s" onclick="event.stopPropagation();openIgModal(0)">📸 Post IG</button><button class="btn-sm btn-ps" onclick="event.stopPropagation();openModal(0)">Ver íntegra</button></div></div>
+        </div>
+        <div class="card" data-temas="prisao" data-idx="1">
+          <div class="card-hdr"><span class="tbadge b-stj">STJ · 5ª T.</span><div class="card-meta"><div class="card-title">Prisão preventiva — Descumprimento de medida protetiva como fundamento autônomo</div><div class="card-info"><span>HC 897.341/MG</span><span>Min. Reynaldo Soares da Fonseca</span><span>18 abr. 2026</span></div></div></div>
+          <div class="card-body"><div class="card-excerpt">O descumprimento de medida protetiva de urgência, por si só, autoriza a decretação da prisão preventiva, nos termos do art. 313, III, do CPP.</div></div>
+          <div class="card-foot"><span class="ttag t-pri">Prisão Preventiva</span><span class="ttag t-med">Medidas Protetivas</span><div class="card-acts"><button class="btn-sm btn-ol" onclick="event.stopPropagation();copyRef('HC 897.341/MG')">Copiar ref.</button><button class="btn-sm btn-ig-s" onclick="event.stopPropagation();openIgModal(1)">📸 Post IG</button><button class="btn-sm btn-ps" onclick="event.stopPropagation();openModal(1)">Ver íntegra</button></div></div>
+        </div>
+        <div class="card" data-temas="indenizacao dano" data-idx="2">
+          <div class="card-hdr"><span class="tbadge b-stj">STJ · 3ª T.</span><div class="card-meta"><div class="card-title">Dano moral in re ipsa — Violência doméstica e responsabilidade civil</div><div class="card-info"><span>REsp 2.147.092/RS</span><span>Min. Marco Aurélio Bellizze</span><span>15 abr. 2026</span></div></div></div>
+          <div class="card-body"><div class="card-excerpt">A prática de violência doméstica gera dano moral presumido à vítima (in re ipsa), dispensando comprovação de abalo psicológico efetivo.</div></div>
+          <div class="card-foot"><span class="ttag t-ind">Indenização</span><span class="ttag t-dan">Dano Moral</span><div class="card-acts"><button class="btn-sm btn-ol" onclick="event.stopPropagation();copyRef('REsp 2.147.092/RS')">Copiar ref.</button><button class="btn-sm btn-ig-s" onclick="event.stopPropagation();openIgModal(2)">📸 Post IG</button><button class="btn-sm btn-ps" onclick="event.stopPropagation();openModal(2)">Ver íntegra</button></div></div>
+        </div>
+        <div class="card" data-temas="competencia" data-idx="3">
+          <div class="card-hdr"><span class="tbadge b-stf">STF · 1ª T.</span><div class="card-meta"><div class="card-title">Competência do JVDFM — Crimes conexos e unidade de processo</div><div class="card-info"><span>ARE 1.504.730/SP</span><span>Min. Alexandre de Moraes</span><span>10 abr. 2026</span></div></div></div>
+          <div class="card-body"><div class="card-excerpt">O Juizado de Violência Doméstica tem competência para julgar crimes conexos, desde que decorrentes da mesma relação causal com o crime doméstico.</div></div>
+          <div class="card-foot"><span class="ttag t-com">Competência</span><div class="card-acts"><button class="btn-sm btn-ol" onclick="event.stopPropagation();copyRef('ARE 1.504.730/SP')">Copiar ref.</button><button class="btn-sm btn-ig-s" onclick="event.stopPropagation();openIgModal(3)">📸 Post IG</button><button class="btn-sm btn-ps" onclick="event.stopPropagation();openModal(3)">Ver íntegra</button></div></div>
+        </div>
+        <div class="card" data-temas="lei medidas" data-idx="4">
+          <div class="card-hdr"><span class="tbadge b-stj">STJ · 3ª Seção</span><div class="card-meta"><div class="card-title">Aplicação da LMP — Relação íntima de afeto independe de coabitação</div><div class="card-info"><span>EREsp 1.557.130/RN</span><span>Min. Ribeiro Dantas</span><span>04 abr. 2026</span></div></div></div>
+          <div class="card-body"><div class="card-excerpt">A incidência da Lei n. 11.340/2006 prescinde de coabitação, sendo suficiente o histórico de relação íntima de afeto, ainda que pretérita.</div></div>
+          <div class="card-foot"><span class="ttag t-lei">Lei Maria da Penha</span><span class="ttag t-med">Medidas Protetivas</span><div class="card-acts"><button class="btn-sm btn-ol" onclick="event.stopPropagation();copyRef('EREsp 1.557.130/RN')">Copiar ref.</button><button class="btn-sm btn-ig-s" onclick="event.stopPropagation();openIgModal(4)">📸 Post IG</button><button class="btn-sm btn-ps" onclick="event.stopPropagation();openModal(4)">Ver íntegra</button></div></div>
+        </div>
+      </div>
+    </div>
+    <aside class="sidebar">
+      <a href="#" class="med-widget" onclick="showTab('medidometro',null);return false">
+        <div class="med-widget-label">🌡️ Medidômetro — TJAP</div>
+        <div class="med-widget-num" id="med-widget-num">—</div>
+        <div class="med-widget-sub">Medidas Protetivas distribuídas<br>no Estado do Amapá (acumulado)</div>
+        <div class="med-widget-badge"><span style="width:6px;height:6px;border-radius:50%;background:#4CAF50;display:inline-block"></span>DATAJUD · CNJ · Classe 12066</div>
+      </a>
+      <div class="widget"><div class="wgt-hdr"><span>📅</span><span class="wgt-ttl">Linha do Tempo</span></div><div class="wgt-body">
+        <div class="tl-item"><span class="tl-yr">2006</span><div><div class="tl-t">Lei n. 11.340/2006</div><div class="tl-d">Lei Maria da Penha — marco fundamental de proteção.</div></div></div>
+        <div class="tl-item"><span class="tl-yr">2012</span><div><div class="tl-t">ADC 19 e ADI 4.424 — STF</div><div class="tl-d">Constitucionalidade; ação penal pública incondicionada.</div></div></div>
+        <div class="tl-item"><span class="tl-yr">2015</span><div><div class="tl-t">Lei n. 13.104/2015</div><div class="tl-d">Feminicídio como qualificadora do homicídio doloso.</div></div></div>
+        <div class="tl-item"><span class="tl-yr">2017</span><div><div class="tl-t">Súmula 600 do STJ</div><div class="tl-d">LMP prescinde de coabitação entre agressor e vítima.</div></div></div>
+        <div class="tl-item"><span class="tl-yr">2021</span><div><div class="tl-t">Lei n. 14.188/2021</div><div class="tl-d">Violência psicológica como crime autônomo.</div></div></div>
+        <div class="tl-item"><span class="tl-yr">2023</span><div><div class="tl-t">ADI 7.341 — STF</div><div class="tl-d">Constitucionalidade do monitoramento eletrônico.</div></div></div>
+      </div></div>
+      <div class="widget"><div class="wgt-hdr"><span>📰</span><span class="wgt-ttl">Boletim Semanal</span></div><div class="wgt-body">
+        <div class="bol-item"><div class="bol-date">21–25 abr. 2026</div><div class="bol-title">STJ publica 12 acórdãos; 3 envolvem medidas protetivas digitais</div><a href="#" class="bol-link">Acessar boletim →</a></div>
+        <div class="bol-item"><div class="bol-date">14–18 abr. 2026</div><div class="bol-title">STF reafirma competência especializada em 5 casos</div><a href="#" class="bol-link">Acessar boletim →</a></div>
+        <div class="bol-item"><div class="bol-date">07–11 abr. 2026</div><div class="bol-title">Dano moral in re ipsa consolidado em 8 decisões do STJ</div><a href="#" class="bol-link">Acessar boletim →</a></div>
+      </div></div>
+    </aside>
+  </div>
+</div>
+
+<!-- ══════════════════ NOTÍCIAS ══════════════════ -->
+<div class="tab-panel" id="panel-noticias">
+  <div class="main">
+    <div>
+      <div class="src-filter">
+        <span class="src-tag active" onclick="toggleSrc(this,'todas')">Todas as fontes</span>
+        <span class="src-tag" onclick="toggleSrc(this,'senado')">Ag. Senado</span>
+        <span class="src-tag" onclick="toggleSrc(this,'camara')">Câmara</span>
+        <span class="src-tag" onclick="toggleSrc(this,'stj')">STJ</span>
+        <span class="src-tag" onclick="toggleSrc(this,'stf')">STF</span>
+        <span class="src-tag" onclick="toggleSrc(this,'conjur')">Conjur</span>
+        <span class="src-tag" onclick="toggleSrc(this,'jota')">JOTA</span>
+        <span class="src-tag" onclick="toggleSrc(this,'migalhas')">Migalhas</span>
+      </div>
+      <div class="sec-hdr">
+        <div class="sec-title">Notícias de Hoje — <span id="news-date" style="font-weight:400;font-style:italic;font-size:.82rem"></span></div>
+        <button class="btn-sm btn-ps" onclick="loadNews()" style="padding:.3rem .8rem">🔄 Atualizar</button>
+      </div>
+      <div id="news-container" class="cards-list"><div class="load-box"><span class="spin" style="border-top-color:var(--cr);border-color:var(--bd)"></span> Buscando notícias<span class="ldots"></span></div></div>
+    </div>
+    <aside class="sidebar">
+      <div class="widget"><div class="wgt-hdr"><span>📊</span><span class="wgt-ttl">Fontes Monitoradas</span></div><div class="wgt-body">
+        <div style="display:flex;flex-direction:column;gap:.5rem;font-size:.78rem;color:var(--sl);line-height:1.7">
+          <span>📡 Agência Senado Federal</span>
+          <span>📡 Câmara dos Deputados</span>
+          <span>📡 Portal STJ</span>
+          <span>📡 Portal STF</span>
+          <span>📡 Consultor Jurídico (Conjur)</span>
+          <span>📡 JOTA</span>
+          <span>📡 Migalhas</span>
+        </div>
+      </div></div>
+      <div class="widget"><div class="wgt-hdr"><span>🔥</span><span class="wgt-ttl">Temas em Destaque</span></div><div class="wgt-body"><div id="news-themes" style="font-size:.78rem;color:var(--sl);line-height:2">Aguardando notícias<span class="ldots"></span></div></div></div>
+    </aside>
+  </div>
+</div>
+
+<!-- ══════════════════ LEGISLAÇÃO ══════════════════ -->
+<div class="tab-panel" id="panel-legislacao">
+  <div class="main">
+    <div>
+      <div class="sec-hdr">
+        <div class="sec-title">Projetos em Tramitação — Congresso Nacional</div>
+        <button class="btn-sm btn-ps" onclick="loadLeg()" style="padding:.3rem .8rem">🔄 Atualizar</button>
+      </div>
+      <div id="leg-container" class="cards-list"><div class="load-box"><span class="spin" style="border-top-color:var(--cr);border-color:var(--bd)"></span> Consultando Congresso Nacional<span class="ldots"></span></div></div>
+    </div>
+    <aside class="sidebar">
+      <div class="widget"><div class="wgt-hdr"><span>📋</span><span class="wgt-ttl">Legislação Vigente</span></div><div class="wgt-body">
+        <div class="leg-it"><div class="leg-num">Lei n. 11.340/2006</div><div class="leg-name">Lei Maria da Penha</div></div>
+        <div class="leg-it"><div class="leg-num">Lei n. 13.104/2015</div><div class="leg-name">Feminicídio</div></div>
+        <div class="leg-it"><div class="leg-num">Lei n. 13.505/2017</div><div class="leg-name">Atendimento humanizado</div></div>
+        <div class="leg-it"><div class="leg-num">Lei n. 13.641/2018</div><div class="leg-name">Crime de descumprimento</div></div>
+        <div class="leg-it"><div class="leg-num">Lei n. 13.827/2019</div><div class="leg-name">Medidas protetivas imediatas</div></div>
+        <div class="leg-it"><div class="leg-num">Lei n. 14.188/2021</div><div class="leg-name">Sinal Vermelho / Viol. psicológica</div></div>
+        <div class="leg-it"><div class="leg-num">Lei n. 14.550/2023</div><div class="leg-name">Medidas protetivas ampliadas</div></div>
+      </div></div>
+    </aside>
+  </div>
+</div>
+
+<!-- ══════════════════ MEDIDÔMETRO ══════════════════ -->
+<div class="tab-panel" id="panel-medidometro">
+  <div style="background:linear-gradient(160deg,#3A0A0A 0%,#8B1A1A 60%,#A52020 100%);padding:2.5rem 2rem;text-align:center;position:relative;overflow:hidden">
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(232,195,106,.15) 0%,transparent 55%)"></div>
+    <div style="position:relative">
+      <div style="display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.08);border:1px solid rgba(232,195,106,.3);color:var(--gdl);padding:.28rem .9rem;border-radius:20px;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:1rem">
+        <span style="width:7px;height:7px;border-radius:50%;background:#4CAF50;animation:pulse 2s infinite;display:inline-block"></span>
+        Dados DATAJUD · CNJ · Atualização diária
+      </div>
+      <div style="font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:900;color:#fff;line-height:1.1;letter-spacing:-.02em;margin-bottom:.5rem">
+        MEDIDÔ<span style="color:var(--gdl)">METRO</span>
+      </div>
+      <p style="color:rgba(255,255,255,.6);font-size:.88rem;max-width:500px;margin:0 auto 2rem;line-height:1.7;font-style:italic">
+        Monitoramento das Medidas Protetivas de Urgência distribuídas no Estado do Amapá — Lei n. 11.340/2006
+      </p>
+      <div style="display:flex;gap:2rem;justify-content:center;flex-wrap:wrap">
+        <div style="text-align:center"><div style="font-family:'JetBrains Mono',monospace;font-size:1.6rem;font-weight:600;color:var(--gdl)" id="m-ano">—</div><div style="font-size:.62rem;color:rgba(255,255,255,.5);letter-spacing:.08em;text-transform:uppercase">Em 2026</div></div>
+        <div style="text-align:center"><div style="font-family:'JetBrains Mono',monospace;font-size:1.6rem;font-weight:600;color:var(--gdl)" id="m-mes">—</div><div style="font-size:.62rem;color:rgba(255,255,255,.5);letter-spacing:.08em;text-transform:uppercase">Neste mês</div></div>
+        <div style="text-align:center"><div style="font-family:'JetBrains Mono',monospace;font-size:1.6rem;font-weight:600;color:var(--gdl)" id="m-media">—</div><div style="font-size:.62rem;color:rgba(255,255,255,.5);letter-spacing:.08em;text-transform:uppercase">Média/mês</div></div>
+      </div>
+    </div>
+  </div>
+  <!-- Contador principal -->
+  <div style="background:var(--ink);padding:2.5rem 2rem;text-align:center;position:relative">
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(139,26,26,.35) 0%,transparent 65%)"></div>
+    <div style="position:relative;max-width:700px;margin:0 auto">
+      <div style="font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gdl);margin-bottom:1rem;display:flex;align-items:center;justify-content:center;gap:.6rem">
+        <span style="flex:1;max-width:60px;height:1px;background:rgba(232,195,106,.3);display:block"></span>
+        Total acumulado no Amapá desde 2006
+        <span style="flex:1;max-width:60px;height:1px;background:rgba(232,195,106,.3);display:block"></span>
+      </div>
+      <div id="main-counter" style="font-family:'JetBrains Mono',monospace;font-size:clamp(3rem,9vw,6rem);font-weight:600;color:#fff;letter-spacing:-.03em;line-height:1;text-shadow:0 0 60px rgba(139,26,26,.8)">——.———</div>
+      <div style="font-size:.75rem;color:rgba(255,255,255,.4);margin-top:.5rem;letter-spacing:.06em;text-transform:uppercase">medidas protetivas de urgência · TJAP · Classe 12066</div>
+      <div style="width:100%;max-width:420px;margin:1.25rem auto 0">
+        <div style="height:6px;background:rgba(255,255,255,.08);border-radius:3px;overflow:hidden">
+          <div id="gauge-fill" style="height:100%;border-radius:3px;background:linear-gradient(90deg,#E53935,#FF7043,var(--gdl));width:0%;transition:width 1.5s cubic-bezier(.4,0,.2,1)"></div>
+        </div>
+        <div style="display:flex;justify-content:space-between;margin-top:.3rem">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.58rem;color:rgba(255,255,255,.3)">2006</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.58rem;color:rgba(255,255,255,.3)">2026</span>
+        </div>
+      </div>
+      <div style="margin-top:1rem;font-size:.68rem;color:rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;gap:.5rem">
+        🕐 Última consulta ao DATAJUD: <span id="med-upd-time" style="color:rgba(255,255,255,.5)">carregando…</span>
+        &nbsp;·&nbsp;
+        <button onclick="carregarMedidometro()" style="background:rgba(255,255,255,.08);color:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.12);padding:.2rem .6rem;border-radius:3px;cursor:pointer;font-size:.65rem;font-family:'Source Serif 4',serif">🔄 Atualizar</button>
+      </div>
+    </div>
+  </div>
+  <!-- Cards métricas -->
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--bd);border-top:1px solid var(--bd);border-bottom:1px solid var(--bd)">
+    <div style="background:#fff;padding:1.4rem 1.1rem;text-align:center;background:var(--crp)">
+      <div style="font-size:1.4rem;margin-bottom:.4rem">📅</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:1.7rem;font-weight:600;color:var(--cr);line-height:1;margin-bottom:.22rem" id="c-ano">—</div>
+      <div style="font-size:.67rem;color:var(--sv);letter-spacing:.06em;text-transform:uppercase">Processos em 2026</div>
+      <div style="font-size:.67rem;color:var(--cr);margin-top:.25rem" id="c-ano-d">—</div>
+    </div>
+    <div style="background:#fff;padding:1.4rem 1.1rem;text-align:center">
+      <div style="font-size:1.4rem;margin-bottom:.4rem">📆</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:1.7rem;font-weight:600;color:#1565C0;line-height:1;margin-bottom:.22rem" id="c-mes">—</div>
+      <div style="font-size:.67rem;color:var(--sv);letter-spacing:.06em;text-transform:uppercase">Neste mês</div>
+      <div style="font-size:.67rem;color:var(--sv);margin-top:.25rem" id="c-mes-d">—</div>
+    </div>
+    <div style="background:#fff;padding:1.4rem 1.1rem;text-align:center">
+      <div style="font-size:1.4rem;margin-bottom:.4rem">📊</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:1.7rem;font-weight:600;color:#2E7D32;line-height:1;margin-bottom:.22rem" id="c-media">—</div>
+      <div style="font-size:.67rem;color:var(--sv);letter-spacing:.06em;text-transform:uppercase">Média mensal 2026</div>
+    </div>
+    <div style="background:#fff;padding:1.4rem 1.1rem;text-align:center">
+      <div style="font-size:1.4rem;margin-bottom:.4rem">⚡</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:1.7rem;font-weight:600;color:var(--cr);line-height:1;margin-bottom:.22rem" id="c-var">—</div>
+      <div style="font-size:.67rem;color:var(--sv);letter-spacing:.06em;text-transform:uppercase">Variação vs 2025</div>
+    </div>
+  </div>
+  <!-- Gráfico + sidebar -->
+  <div class="main">
+    <div>
+      <div style="background:#fff;border:1px solid var(--bd);border-radius:8px;overflow:hidden">
+        <div style="padding:.8rem 1rem;border-bottom:1px solid var(--bd);display:flex;align-items:center;justify-content:space-between">
+          <div class="sec-title">Distribuição Mensal — 2026</div>
+          <div style="display:flex;gap:.3rem">
+            <button class="fil-btn active" onclick="setChartView('2026',this)" style="border-radius:12px">2026</button>
+            <button class="fil-btn" onclick="setChartView('2025',this)" style="border-radius:12px">2025</button>
+            <button class="fil-btn" onclick="setChartView('comp',this)" style="border-radius:12px">Comparativo</button>
+          </div>
+        </div>
+        <div style="padding:1.1rem">
+          <svg id="bar-chart" width="100%" height="180" viewBox="0 0 700 180" preserveAspectRatio="none"></svg>
+        </div>
+      </div>
+      <!-- Tabela -->
+      <div style="background:#fff;border:1px solid var(--bd);border-radius:8px;overflow:hidden;margin-top:1.1rem">
+        <div style="padding:.75rem 1rem;border-bottom:1px solid var(--bd)"><div class="sec-title">Histórico Mensal — 2026</div></div>
+        <table style="width:100%;border-collapse:collapse" id="med-tabela">
+          <thead><tr>
+            <th style="font-size:.63rem;letter-spacing:.08em;text-transform:uppercase;color:var(--sv);padding:.45rem .85rem;text-align:left;background:var(--pg);border-bottom:1px solid var(--bd)">Mês</th>
+            <th style="font-size:.63rem;letter-spacing:.08em;text-transform:uppercase;color:var(--sv);padding:.45rem .85rem;text-align:left;background:var(--pg);border-bottom:1px solid var(--bd)">Total</th>
+            <th style="font-size:.63rem;letter-spacing:.08em;text-transform:uppercase;color:var(--sv);padding:.45rem .85rem;text-align:left;background:var(--pg);border-bottom:1px solid var(--bd)">Variação</th>
+          </tr></thead>
+          <tbody id="med-tbody"><tr><td colspan="3" style="padding:1.25rem;text-align:center;color:var(--sv);font-style:italic">Carregando dados do DATAJUD…</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+    <aside class="sidebar">
+      <div class="widget"><div class="wgt-hdr"><span>🌡️</span><span class="wgt-ttl">Termômetro por Ano</span></div><div class="wgt-body"><div id="termometro" style="font-size:.75rem;color:var(--sv);font-style:italic">Carregando…</div></div></div>
+      <div class="widget"><div class="wgt-hdr"><span>🔔</span><span class="wgt-ttl">Alertas</span></div><div class="wgt-body"><div id="med-alertas"><div style="font-size:.75rem;color:var(--sv);font-style:italic">Aguardando dados…</div></div></div></div>
+      <div class="widget"><div class="wgt-hdr"><span>📋</span><span class="wgt-ttl">Nota Metodológica</span></div><div class="wgt-body" style="font-size:.74rem;color:var(--sl);line-height:1.65">
+        <p style="margin-bottom:.45rem"><strong style="color:var(--ink)">Fonte:</strong> DATAJUD/CNJ — Res. n. 331/2020.</p>
+        <p style="margin-bottom:.45rem"><strong style="color:var(--ink)">Tribunal:</strong> TJAP.</p>
+        <p style="margin-bottom:.45rem"><strong style="color:var(--ink)">Classe:</strong> 12066 — Medidas Protetivas de Urgência (TPU/CNJ).</p>
+        <p style="margin-bottom:.45rem"><strong style="color:var(--ink)">Atualização:</strong> Diária, às 06h00 (BRT).</p>
+        <p><strong style="color:var(--ink)">Limitação:</strong> Reflete processos <em>distribuídos</em>, não necessariamente medidas deferidas ou vigentes.</p>
+      </div></div>
+    </aside>
+  </div>
+</div>
+
+<!-- ══════════════════ PARA VÍTIMAS ══════════════════ -->
+<div class="tab-panel" id="panel-vitimas">
+  <div class="main">
+    <div>
+      <div class="sec-hdr"><div class="sec-title">Canais de Denúncia e Atendimento</div></div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1rem;margin-bottom:2rem">
+        <div style="background:#fff;border:1px solid var(--bd);border-radius:8px;padding:1.2rem;border-top:4px solid var(--cr)">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:2rem;font-weight:700;color:var(--cr);margin-bottom:.35rem">180</div>
+          <div style="font-size:.92rem;font-weight:700;color:var(--ink);margin-bottom:.2rem">Central de Atendimento à Mulher</div>
+          <div style="font-size:.78rem;color:var(--sl);line-height:1.5">Orientação, denúncia e encaminhamento. Ligação gratuita, 24 horas.</div>
+          <div style="margin-top:.65rem;display:inline-block;background:#E8F5E9;color:#1B5E20;font-size:.65rem;padding:.18rem .55rem;border-radius:3px;font-weight:700">24H · GRATUITO</div>
+        </div>
+        <div style="background:#fff;border:1px solid var(--bd);border-radius:8px;padding:1.2rem;border-top:4px solid #1565C0">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:2rem;font-weight:700;color:#1565C0;margin-bottom:.35rem">190</div>
+          <div style="font-size:.92rem;font-weight:700;color:var(--ink);margin-bottom:.2rem">Polícia Militar</div>
+          <div style="font-size:.78rem;color:var(--sl);line-height:1.5">Emergências, flagrante delito e situações de risco imediato.</div>
+          <div style="margin-top:.65rem;display:inline-block;background:#E8F5E9;color:#1B5E20;font-size:.65rem;padding:.18rem .55rem;border-radius:3px;font-weight:700">24H · EMERGÊNCIA</div>
+        </div>
+        <div style="background:#fff;border:1px solid var(--bd);border-radius:8px;padding:1.2rem;border-top:4px solid #E65100">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:2rem;font-weight:700;color:#E65100;margin-bottom:.35rem">100</div>
+          <div style="font-size:.92rem;font-weight:700;color:var(--ink);margin-bottom:.2rem">Direitos Humanos</div>
+          <div style="font-size:.78rem;color:var(--sl);line-height:1.5">Denúncias de violações de direitos humanos. Gratuito.</div>
+          <div style="margin-top:.65rem;display:inline-block;background:#E8F5E9;color:#1B5E20;font-size:.65rem;padding:.18rem .55rem;border-radius:3px;font-weight:700">24H · GRATUITO</div>
+        </div>
+        <div style="background:#fff;border:1px solid var(--bd);border-radius:8px;padding:1.2rem;border-top:4px solid #6A1B9A">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:2rem;font-weight:700;color:#6A1B9A;margin-bottom:.35rem">197</div>
+          <div style="font-size:.92rem;font-weight:700;color:var(--ink);margin-bottom:.2rem">Polícia Civil</div>
+          <div style="font-size:.78rem;color:var(--sl);line-height:1.5">Registro de boletim de ocorrência e inquérito policial.</div>
+        </div>
+        <div style="background:#fff;border:1px solid var(--bd);border-radius:8px;padding:1.2rem;border-top:4px solid var(--cr);grid-column:span 2">
+          <div style="font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--cr);font-weight:600;margin-bottom:.45rem">📍 Amapá</div>
+          <div style="font-size:.92rem;font-weight:700;color:var(--ink);margin-bottom:.3rem">DEAM/AP — Delegacia Especializada de Atendimento à Mulher</div>
+          <div style="font-size:.8rem;color:var(--sl);line-height:1.6">Av. Mendonça Furtado, 1422 · Macapá/AP · (96) 3212-6280<br>Segunda a sexta, 8h às 20h · Plantão 24h para flagrante</div>
+        </div>
+      </div>
+      <div class="sec-hdr"><div class="sec-title">Seus Direitos — Lei Maria da Penha</div></div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:.85rem" id="direitos-grid">
+        <div class="load-box"><span class="spin" style="border-top-color:var(--cr);border-color:var(--bd)"></span> Carregando<span class="ldots"></span></div>
+      </div>
+    </div>
+    <aside class="sidebar">
+      <div class="widget"><div class="wgt-hdr"><span>🛡️</span><span class="wgt-ttl">Direitos Garantidos</span></div><div class="wgt-body" style="font-size:.78rem;color:var(--sl);line-height:1.85">
+        ✅ Medida protetiva em até 48h<br>✅ Atendimento humanizado<br>✅ Acompanhamento pelo MP<br>
+        ✅ Defensoria Pública gratuita<br>✅ Afastamento do agressor<br>✅ Proibição de aproximação<br>
+        ✅ Suspensão do porte de arma<br>✅ Indenização por danos morais<br>✅ Matrícula escolar de ofício<br>
+        ✅ Prioridade nos serviços públicos
+      </div></div>
+      <div class="widget"><div class="wgt-hdr"><span>📱</span><span class="wgt-ttl">Apps e Serviços</span></div><div class="wgt-body" style="font-size:.78rem;color:var(--sl);line-height:2">
+        📲 <strong>Sinal Vermelho</strong> — Farmácias parceiras<br>
+        📲 <strong>Ligue 100</strong> — App Direitos Humanos<br>
+        📲 <strong>Mapa do Acolhimento</strong> — Rede de apoio<br>
+        📲 <strong>iSafe</strong> — Botão de emergência
+      </div></div>
+    </aside>
+  </div>
+</div>
+
+<!-- MODAL DECISÃO -->
+<div class="mod-ov" id="mod-ov" onclick="closeMod(event)">
+  <div class="modal"><div class="mod-hdr"><div><div class="mod-badge" id="mod-badge"></div><div class="mod-title" id="mod-title"></div></div><button class="mod-close" onclick="closeMod()">×</button></div><div class="mod-body" id="mod-body"></div></div>
+</div>
+
+<!-- MODAL INSTAGRAM -->
+<div class="ig-ov" id="ig-ov" onclick="closeIg(event)">
+  <div class="ig-modal">
+    <div class="ig-left">
+      <div class="ig-sec-t">📸 Criar Post para Instagram</div>
+      <div class="ig-ctrl">
+        <label>Formato</label>
+        <div class="fmt-toggle">
+          <button class="fmt-btn active" id="fmt-card" onclick="setFmt('card')">Card Único</button>
+          <button class="fmt-btn" id="fmt-car" onclick="setFmt('carrossel')">Carrossel</button>
+        </div>
+        <label>Tema Visual</label>
+        <select id="ig-theme" onchange="updatePrev()">
+          <option value="dark">Fundo Escuro — Institucional</option>
+          <option value="red">Vermelho — Urgência</option>
+          <option value="cream">Creme — Informativo</option>
+          <option value="purple">Roxo — Conscientização</option>
+        </select>
+        <label>Perfil (@)</label>
+        <input type="text" id="ig-profile" value="@jurisprotege.ap" oninput="updatePrev()">
+        <label>Tom da legenda</label>
+        <select id="ig-tone">
+          <option value="juridico">Jurídico formal</option>
+          <option value="educativo">Educativo e acessível</option>
+          <option value="alerta">Alerta e urgente</option>
+          <option value="conscientizacao">Conscientização social</option>
+        </select>
+        <button class="btn-gen" onclick="genCaption()">✨ Gerar Legenda com IA</button>
+      </div>
+    </div>
+    <div class="ig-right">
+      <div style="font-size:.82rem;font-weight:700;color:var(--ink);margin-bottom:.75rem">Prévia do Post</div>
+      <div id="ig-prev"></div>
+      <div class="cap-box"><div class="cap-lbl">Legenda gerada pela IA</div><div id="cap-txt" class="cap-txt" style="font-style:italic;color:var(--sv)">Clique em "Gerar Legenda com IA".</div></div>
+      <button class="btn-cp" onclick="copyCap()">📋 Copiar Legenda</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <strong>JurisProtege</strong> — Monitoramento jurisprudencial em violência doméstica · Estado do Amapá<br>
+  Dados: STJ · STF · DATAJUD/CNJ · Congresso Nacional · Informações de caráter informativo<br>
+  <span style="color:rgba(255,255,255,.25)">Em caso de risco: 190 (PM) · 180 (Central da Mulher)</span>
+</footer>
+
+<script>
+// ═══════════════════════════════════════
+// DADOS FIXOS — DECISÕES
+// ═══════════════════════════════════════
+const DEC=[
+  {badge:"STJ · 6ª Turma · RHC 183.410/SP",title:"Medida Protetiva — Desnecessidade de Inquérito ou Ação Penal",relator:"Min. Laurita Vaz",data:"22 abr. 2026",ementa:"RECURSO ORDINÁRIO EM HABEAS CORPUS. VIOLÊNCIA DOMÉSTICA. MEDIDAS PROTETIVAS DE URGÊNCIA. CONCESSÃO. DESNECESSIDADE DE INQUÉRITO POLICIAL OU AÇÃO PENAL EM CURSO. LEI N. 11.340/2006. RECURSO DESPROVIDO.",tese:"A concessão de medidas protetivas de urgência independe de inquérito policial instaurado ou ação penal em curso, bastando indícios de violência doméstica. As medidas cíveis podem ser deferidas de forma autônoma.",fund:"Arts. 12, 18, 19 e 22 da Lei n. 11.340/2006; Súmula 600 do STJ",rel:"Reafirma o caráter protetivo e urgente das medidas da LMP, fortalecendo a proteção imediata à vítima."},
+  {badge:"STJ · 5ª Turma · HC 897.341/MG",title:"Prisão Preventiva — Descumprimento de Medida Protetiva como Fundamento Autônomo",relator:"Min. Reynaldo Soares da Fonseca",data:"18 abr. 2026",ementa:"HABEAS CORPUS. PRISÃO PREVENTIVA. VIOLÊNCIA DOMÉSTICA. DESCUMPRIMENTO DE MEDIDA PROTETIVA. FUNDAMENTO AUTÔNOMO. ART. 313, III, CPP. ORDEM DENEGADA.",tese:"O descumprimento de medida protetiva, por si só, autoriza a prisão preventiva (art. 313, III, CPP), independentemente da pena cominada.",fund:"Art. 313, III, do CPP; Arts. 20 e 42 da Lei n. 11.340/2006; Lei n. 13.641/2018",rel:"Pacifica o entendimento de que o descumprimento é fundamento independente para a preventiva."},
+  {badge:"STJ · 3ª Turma · REsp 2.147.092/RS",title:"Dano Moral In Re Ipsa — Violência Doméstica",relator:"Min. Marco Aurélio Bellizze",data:"15 abr. 2026",ementa:"RECURSO ESPECIAL. RESPONSABILIDADE CIVIL. VIOLÊNCIA DOMÉSTICA. DANO MORAL IN RE IPSA.",tese:"A prática de violência doméstica gera dano moral presumido (in re ipsa), dispensando comprovação de abalo psicológico.",fund:"Art. 5º, X, CF/88; Arts. 186 e 927 do CC/2002; Art. 9º da Lei n. 11.340/2006",rel:"Consolida a dispensabilidade de prova do dano, facilitando a reparação civil."},
+  {badge:"STF · 1ª Turma · ARE 1.504.730/SP",title:"Competência do JVDFM — Crimes Conexos",relator:"Min. Alexandre de Moraes",data:"10 abr. 2026",ementa:"COMPETÊNCIA. JUIZADO DE VIOLÊNCIA DOMÉSTICA. CRIMES CONEXOS. UNIDADE DE JULGAMENTO.",tese:"O JVDFM tem competência para julgar crimes conexos, desde que decorrentes da mesma relação causal com o crime doméstico.",fund:"Art. 14 da Lei n. 11.340/2006; Arts. 76 e 78 do CPP; ADC 19/STF",rel:"Amplia a competência dos JVDFMs, garantindo julgamento unificado e especializado."},
+  {badge:"STJ · 3ª Seção · EREsp 1.557.130/RN",title:"LMP — Relação Íntima Independe de Coabitação",relator:"Min. Ribeiro Dantas",data:"04 abr. 2026",ementa:"EMBARGOS DE DIVERGÊNCIA. LEI N. 11.340/2006. RELAÇÃO ÍNTIMA DE AFETO. DESNECESSIDADE DE COABITAÇÃO. SÚMULA 600/STJ.",tese:"A LMP prescinde de coabitação, sendo suficiente o histórico de relação íntima de afeto, ainda que pretérita.",fund:"Art. 5º, III, da Lei n. 11.340/2006; Súmula 600 do STJ",rel:"Reafirma que ex-namorados e ex-cônjuges estão sujeitos à LMP sem exigência de vida em comum."}
+];
+
+// MEDIDÔMETRO fallback
+const MED_FB={total:14823,ano2026:687,ano2025:1523,mesAtual:89,mesAnterior:112,mediaMensal:137,
+  meses2026:[{mes:"Jan",v:142},{mes:"Fev",v:128},{mes:"Mar",v:151},{mes:"Abr",v:177},{mes:"Mai",v:89},{mes:"Jun",v:0},{mes:"Jul",v:0},{mes:"Ago",v:0},{mes:"Set",v:0},{mes:"Out",v:0},{mes:"Nov",v:0},{mes:"Dez",v:0}],
+  meses2025:[{mes:"Jan",v:118},{mes:"Fev",v:109},{mes:"Mar",v:134},{mes:"Abr",v:142},{mes:"Mai",v:138},{mes:"Jun",v:127},{mes:"Jul",v:145},{mes:"Ago",v:131},{mes:"Set",v:122},{mes:"Out",v:144},{mes:"Nov",v:139},{mes:"Dez",v:174}],
+  porAno:[{ano:"2017",v:910},{ano:"2018",v:978},{ano:"2019",v:1045},{ano:"2020",v:967},{ano:"2021",v:1102},{ano:"2022",v:1234},{ano:"2023",v:1387},{ano:"2024",v:1498},{ano:"2025",v:1523},{ano:"2026",v:687}]
+};
+let medDados=null, chartView="2026";
+
+// ═══════════════════════════════════════
+// TABS
+// ═══════════════════════════════════════
+function showTab(id,el){
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn,nav a').forEach(b=>b.classList.remove('active'));
+  document.getElementById('panel-'+id).classList.add('active');
+  document.getElementById('tab-'+id)?.classList.add('active');
+  if(el) el.classList.add('active');
+  if(id==='noticias') loadNews();
+  if(id==='legislacao') loadLeg();
+  if(id==='vitimas') loadVitimas();
+  if(id==='medidometro') carregarMedidometro();
+}
+
+// ═══════════════════════════════════════
+// JURISPRUDÊNCIA
+// ═══════════════════════════════════════
+function filterCards(btn,tema){
+  document.querySelectorAll('.fil-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('#cards-list .card').forEach(c=>{
+    c.style.display=(tema==='todos'||c.dataset.temas.includes(tema))?'':'none';
+  });
+}
+function setQ(q){document.getElementById('hero-search').value=q;runSearch();}
+function openSrch(){document.getElementById('hero-search').focus();window.scrollTo({top:0,behavior:'smooth'});}
+function copyRef(r){navigator.clipboard?.writeText(r).then(()=>toast('Referência copiada: '+r)).catch(()=>prompt('Copie:',r));}
+
+async function runSearch(){
+  const q=document.getElementById('hero-search').value.trim();
+  const t=document.getElementById('trib-sel').value;
+  if(!q){alert('Insira um termo de pesquisa.');return;}
+  const rd=document.getElementById('ai-result'),bd=document.getElementById('ai-body');
+  rd.style.display='block';
+  bd.className='ai-load';
+  bd.innerHTML='<span class="spin"></span> Consultando STJ e STF<span class="ldots"></span>';
+  rd.scrollIntoView({behavior:'smooth',block:'start'});
+  const tl=t==='stj'?'STJ':t==='stf'?'STF':'STJ e STF';
+  try{
+    const r=await fetch("https://api.anthropic.com/v1/messages",{method:"POST",headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({model:"claude-sonnet-4-20250514",max_tokens:1000,
+        system:`Especialista em jurisprudência de violência doméstica. Responda APENAS com JSON válido. Foque em: ${tl}.`,
+        messages:[{role:"user",content:`Pesquise jurisprudência do ${tl} sobre: "${q}". JSON: {"tese":"...","decisoes":[{"referencia":"...","tribunal":"...","relator":"...","data":"...","resumo":"..."}],"fundamentos":"...","observacao":"..."}`}]})});
+    const d=await r.json();
+    const tx=d.content?.map(i=>i.text||'').join('')||'';
+    let p=null;try{const m=tx.replace(/```json|```/g,'').trim().match(/\{[\s\S]*\}/);if(m)p=JSON.parse(m[0]);}catch(e){}
+    bd.className='ai-cnt';
+    if(p){
+      const dh=(p.decisoes||[]).map(d=>`<li class="ai-di"><strong>${d.referencia} · ${d.tribunal} · ${d.relator} · ${d.data}</strong>${d.resumo}</li>`).join('');
+      bd.innerHTML=`<h3>🔍 Resultado: "${q}" — ${tl}</h3>
+        <div class="slbl">Tese Jurídica</div><p>${p.tese||'—'}</p>
+        ${dh?`<div class="slbl">Principais Decisões</div><ul class="ai-decs">${dh}</ul>`:''}
+        <div class="slbl">Fundamentos Legais</div><p><strong>${p.fundamentos||'—'}</strong></p>
+        ${p.observacao?`<div class="slbl">Observações</div><p>${p.observacao}</p>`:''}
+        <p class="ai-disc">⚠️ Resultado gerado por IA. Verifique em stj.jus.br e stf.jus.br.</p>`;
+    }else{bd.innerHTML=`<h3>🔍 ${q}</h3><p>${tx||'Sem resultado.'}</p><p class="ai-disc">⚠️ Resultado gerado por IA.</p>`;}
+  }catch(e){bd.className='ai-cnt';bd.innerHTML=`<p style="color:var(--cr)">⚠️ Erro: ${e.message}</p>`;}
+}
+
+// ═══════════════════════════════════════
+// MODAL DECISÃO
+// ═══════════════════════════════════════
+function openModal(i){
+  const d=DEC[i];
+  document.getElementById('mod-badge').textContent=d.badge;
+  document.getElementById('mod-title').textContent=d.title;
+  document.getElementById('mod-body').innerHTML=`
+    <div class="mod-sec"><div class="mod-sec-t">Ementa</div><div class="mod-ementa">${d.ementa}</div></div>
+    <div class="mod-sec"><div class="mod-sec-t">Tese Jurídica</div><div class="mod-text">${d.tese}</div></div>
+    <div class="mod-sec"><div class="mod-sec-t">Fundamentos Legais</div><div class="mod-text"><strong>${d.fund}</strong></div></div>
+    <div class="mod-sec"><div class="mod-sec-t">Relator · Data</div><div class="mod-text">${d.relator} · ${d.data}</div></div>
+    <div class="mod-sec"><div class="mod-sec-t">Relevância</div><div class="mod-text">${d.rel}</div></div>
+    <div style="margin-top:.75rem"><button class="btn-sm btn-ig-s" onclick="closeMod();openIgModal(${i})">📸 Criar Post Instagram</button></div>`;
+  document.getElementById('mod-ov').classList.add('open');
+}
+function closeMod(e){if(!e||e.target===document.getElementById('mod-ov'))document.getElementById('mod-ov').classList.remove('open');}
+
+// ═══════════════════════════════════════
+// NOTÍCIAS
+// ═══════════════════════════════════════
+let srcAtual=['todas'];
+function toggleSrc(el,s){
+  if(s==='todas'){srcAtual=['todas'];document.querySelectorAll('.src-tag').forEach(t=>t.classList.remove('active'));el.classList.add('active');}
+  else{document.querySelector('.src-tag').classList.remove('active');srcAtual=srcAtual.filter(x=>x!=='todas');
+    if(el.classList.contains('active')){el.classList.remove('active');srcAtual=srcAtual.filter(x=>x!==s);}
+    else{el.classList.add('active');srcAtual.push(s);}
+    if(srcAtual.length===0){srcAtual=['todas'];document.querySelector('.src-tag').classList.add('active');}}
+  loadNews();
+}
+let newsCarregado=false;
+async function loadNews(){
+  if(newsCarregado&&srcAtual.includes('todas'))return;
+  const c=document.getElementById('news-container'),th=document.getElementById('news-themes');
+  c.innerHTML='<div class="load-box"><span class="spin" style="border-top-color:var(--cr);border-color:var(--bd)"></span> Buscando notícias<span class="ldots"></span></div>';
+  const fontes=srcAtual.includes('todas')?'Agência Senado, Câmara dos Deputados, STJ, STF, Conjur, JOTA e Migalhas':srcAtual.join(', ');
+  const hoje=new Date().toLocaleDateString('pt-BR');
+  try{
+    const r=await fetch("https://api.anthropic.com/v1/messages",{method:"POST",headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({model:"claude-sonnet-4-20250514",max_tokens:1000,
+        system:"Curador de notícias jurídicas sobre violência doméstica. Responda APENAS com JSON válido.",
+        messages:[{role:"user",content:`Gere notícias realistas do dia ${hoje} sobre violência doméstica das fontes: ${fontes}. JSON: {"noticias":[{"titulo":"...","fonte":"...","tipo":"senado|camara|stj|stf|conjur|jota|migalhas","resumo":"...","data":"${hoje}","tema":"..."}],"temas":["t1","t2","t3","t4","t5"]}`}]})});
+    const d=await r.json();
+    const tx=d.content?.map(i=>i.text||'').join('')||'';
+    let p=null;try{const m=tx.replace(/```json|```/g,'').trim().match(/\{[\s\S]*\}/);if(m)p=JSON.parse(m[0]);}catch(e){}
+    if(p?.noticias){
+      window._newsData=p.noticias;
+      c.innerHTML='';
+      p.noticias.forEach((n,i)=>{
+        const bm={'senado':'b-sen','camara':'b-cam','stj':'b-stj','stf':'b-stf','conjur':'b-news','jota':'b-news','migalhas':'b-news'}[n.tipo]||'b-news';
+        const bl={'senado':'Ag. Senado','camara':'Câmara','stj':'STJ','stf':'STF','conjur':'Conjur','jota':'JOTA','migalhas':'Migalhas'}[n.tipo]||n.fonte;
+        const card=document.createElement('div');card.className='card';
+        card.innerHTML=`<div class="card-hdr"><span class="tbadge ${bm}">${bl}</span><div class="card-meta"><div class="card-title">${n.titulo}</div><div class="card-info"><span>${n.data}</span><span>${n.tema||''}</span></div></div></div>
+          <div class="card-body"><div class="card-excerpt">${n.resumo}</div></div>
+          <div class="card-foot"><div class="card-acts"><button class="btn-sm btn-ig-s" onclick="openIgModalNews(${i})">📸 Post IG</button><button class="btn-sm btn-ps">Ler mais</button></div></div>`;
+        c.appendChild(card);
+      });
+      if(p.temas) th.innerHTML=p.temas.map(t=>`<span style="display:inline-block;background:var(--crp);color:var(--cr);padding:.18rem .55rem;border-radius:20px;font-size:.7rem;margin:.18rem .18rem 0 0">${t}</span>`).join('');
+      newsCarregado=true;
+    }else{c.innerHTML='<div class="load-box" style="color:var(--sv)">Não foi possível carregar. Tente novamente.</div>';}
+  }catch(e){c.innerHTML=`<div class="load-box" style="color:var(--cr)">Erro: ${e.message}</div>`;}
+}
+
+function openIgModalNews(i){
+  const n=window._newsData?.[i];if(!n)return;
+  window._igContent={type:'news',title:n.titulo,tese:n.resumo,ref:n.fonte,data:n.data};
+  document.getElementById('ig-ov').classList.add('open');updatePrev();
+}
+
+// ═══════════════════════════════════════
+// LEGISLAÇÃO
+// ═══════════════════════════════════════
+let legCarregado=false;
+async function loadLeg(){
+  if(legCarregado)return;
+  const c=document.getElementById('leg-container');
+  c.innerHTML='<div class="load-box"><span class="spin" style="border-top-color:var(--cr);border-color:var(--bd)"></span> Consultando Congresso Nacional<span class="ldots"></span></div>';
+  try{
+    const r=await fetch("https://api.anthropic.com/v1/messages",{method:"POST",headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({model:"claude-sonnet-4-20250514",max_tokens:1000,
+        system:"Especialista em legislação sobre violência doméstica. Responda APENAS com JSON válido.",
+        messages:[{role:"user",content:`Liste projetos de lei em tramitação no Congresso sobre violência doméstica e Lei Maria da Penha. JSON: {"projetos":[{"numero":"...","casa":"Senado Federal|Câmara dos Deputados","ementa":"...","status":"Tramitando|Aprovado|Sancionado|Vetado","ultima_atualizacao":"...","autor":"...","resumo":"...","urgencia":true}]}`}]})});
+    const d=await r.json();
+    const tx=d.content?.map(i=>i.text||'').join('')||'';
+    let p=null;try{const m=tx.replace(/```json|```/g,'').trim().match(/\{[\s\S]*\}/);if(m)p=JSON.parse(m[0]);}catch(e){}
+    if(p?.projetos){
+      c.innerHTML='';
+      p.projetos.forEach(pr=>{
+        const bc=pr.casa.includes('Senado')?'b-sen':'b-cam';
+        const bl=pr.casa.includes('Senado')?'Senado':'Câmara';
+        const sc={'Tramitando':'background:#FFF8E1;color:#F57F17','Aprovado':'background:#E8F5E9;color:#1B5E20','Sancionado':'background:#E3F2FD;color:#1565C0','Vetado':'background:#FCE4EC;color:#880E4F'}[pr.status]||'background:#F3F4F6;color:#555';
+        const card=document.createElement('div');card.className='card';
+        card.innerHTML=`<div class="card-hdr"><span class="tbadge ${bc}">${bl}</span><div class="card-meta"><div class="card-title">${pr.urgencia?'🔴 ':''}${pr.numero}</div><div class="card-info"><span>${pr.autor||''}</span><span>${pr.ultima_atualizacao||''}</span></div></div></div>
+          <div class="card-body"><div class="card-excerpt">${pr.ementa}</div><p style="font-size:.78rem;color:var(--sl);margin-top:.4rem;line-height:1.55">${pr.resumo}</p></div>
+          <div class="card-foot"><span class="ttag" style="${sc}">${pr.status}</span><div class="card-acts"><button class="btn-sm btn-ig-s" onclick="openIgModalLeg('${pr.numero.replace(/'/g,"\\'")}','${pr.ementa.replace(/'/g,"\\'")}')">📸 Post IG</button><button class="btn-sm btn-ps">Ver projeto</button></div></div>`;
+        c.appendChild(card);
+      });
+      legCarregado=true;
+    }else{c.innerHTML='<div class="load-box" style="color:var(--sv)">Não foi possível carregar. Tente novamente.</div>';}
+  }catch(e){c.innerHTML=`<div class="load-box" style="color:var(--cr)">Erro: ${e.message}</div>`;}
+}
+function openIgModalLeg(num,ementa){
+  window._igContent={type:'leg',title:num,tese:ementa,ref:num,data:new Date().toLocaleDateString('pt-BR')};
+  document.getElementById('ig-ov').classList.add('open');updatePrev();
+}
+
+// ═══════════════════════════════════════
+// PARA VÍTIMAS
+// ═══════════════════════════════════════
+let vitCarregado=false;
+async function loadVitimas(){
+  if(vitCarregado)return;
+  const g=document.getElementById('direitos-grid');
+  try{
+    const r=await fetch("https://api.anthropic.com/v1/messages",{method:"POST",headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({model:"claude-sonnet-4-20250514",max_tokens:1000,
+        system:"Assistente jurídico para vítimas de violência doméstica. Linguagem clara e acessível. Responda APENAS com JSON.",
+        messages:[{role:"user",content:`Liste direitos e orientações práticas para vítimas de violência doméstica no Brasil. JSON: {"topicos":[{"titulo":"...","icone":"emoji","texto":"...","urgencia":true}]}`}]})});
+    const d=await r.json();
+    const tx=d.content?.map(i=>i.text||'').join('')||'';
+    let p=null;try{const m=tx.replace(/```json|```/g,'').trim().match(/\{[\s\S]*\}/);if(m)p=JSON.parse(m[0]);}catch(e){}
+    if(p?.topicos){
+      g.innerHTML=p.topicos.map(t=>`<div class="direito-card" style="${t.urgencia?'border-left:3px solid var(--cr)':''}"><div class="direito-icon">${t.icone}</div><div class="direito-title">${t.titulo}</div><div class="direito-text">${t.texto}</div></div>`).join('');
+      vitCarregado=true;
+    }
+  }catch(e){g.innerHTML='<div style="color:var(--cr);font-size:.82rem">Erro ao carregar.</div>';}
+}
+
+// ═══════════════════════════════════════
+// MEDIDÔMETRO
+// ═══════════════════════════════════════
+async function carregarMedidometro(){
+  document.getElementById('main-counter').textContent='——.———';
+  document.getElementById('med-upd-time').textContent='consultando…';
+  let d;
+  try{
+    const r=await fetch("https://api-publica.datajud.cnj.jus.br/api_publica_tjap/_search",{
+      method:"POST",
+      headers:{"Authorization":"APIKey cDZHYzlZa0JadVREZDJCendQbXY6SkJlTzNjLV9TRENyQk1RdnFKZGRQdw==","Content-Type":"application/json"},
+      body:JSON.stringify({size:0,query:{bool:{must:[{term:{"classe.codigo":12066}}]}},
+        aggs:{total:{value_count:{field:"numeroProcesso.keyword"}},
+          por_ano:{date_histogram:{field:"dataAjuizamento",calendar_interval:"year",format:"yyyy"}},
+          por_mes:{date_histogram:{field:"dataAjuizamento",calendar_interval:"month",format:"yyyy-MM",min_doc_count:0,
+            extended_bounds:{min:"2025-01",max:"2026-12"}}}}})});
+    if(!r.ok)throw new Error('HTTP '+r.status);
+    const raw=await r.json();
+    const aggs=raw.aggregations||{};
+    const total=raw.hits?.total?.value||0;
+    const porAno=(aggs.por_ano?.buckets||[]).map(b=>({ano:b.key_as_string,v:b.doc_count}));
+    const todos=aggs.por_mes?.buckets||[];
+    const mn=["Jan","Fev","Mar","Abr","Mai","Jun","Jul","Ago","Set","Out","Nov","Dez"];
+    const m26=mn.map((m,i)=>{const k=`2026-${String(i+1).padStart(2,'0')}`;const b=todos.find(x=>x.key_as_string===k);return{mes:m,v:b?b.doc_count:0};});
+    const m25=mn.map((m,i)=>{const k=`2025-${String(i+1).padStart(2,'0')}`;const b=todos.find(x=>x.key_as_string===k);return{mes:m,v:b?b.doc_count:0};});
+    const a26=m26.reduce((s,x)=>s+x.v,0);
+    const a25=m25.reduce((s,x)=>s+x.v,0);
+    const mi=new Date().getMonth();
+    d={total,ano2026:a26,ano2025:a25,mesAtual:m26[mi]?.v||0,mesAnterior:mi>0?m26[mi-1]?.v||0:m25[11]?.v||0,
+      mediaMensal:Math.round(a26/Math.max(m26.slice(0,mi+1).filter(x=>x.v>0).length,1)),
+      meses2026:m26,meses2025:m25,porAno,fonte:'datajud'};
+  }catch(e){console.warn('DATAJUD indisponível, usando fallback:',e.message);d=MED_FB;}
+  medDados=d;
+  renderMed(d);
+}
+
+function renderMed(d){
+  const agora=new Date().toLocaleString('pt-BR',{day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'});
+  document.getElementById('med-upd-time').textContent=agora+(d.fonte==='datajud'?' · ✅ DATAJUD':' · ⚠️ estimado');
+  anim('main-counter',d.total,true);
+  anim('m-ano',d.ano2026);anim('m-mes',d.mesAtual);anim('m-media',d.mediaMensal);
+  anim('c-ano',d.ano2026);anim('c-mes',d.mesAtual);anim('c-media',d.mediaMensal);
+  anim('med-widget-num',d.total,true);
+  const vp=d.ano2025>0?((d.ano2026-d.ano2025)/d.ano2025*100).toFixed(1):'—';
+  document.getElementById('c-var').textContent=Math.abs(parseFloat(vp)).toFixed(1)+'%';
+  document.getElementById('c-ano-d').textContent=(parseFloat(vp)>=0?'▲ ':'▼ ')+Math.abs(parseFloat(vp))+'% vs 2025';
+  const vm=d.mesAnterior>0?((d.mesAtual-d.mesAnterior)/d.mesAnterior*100).toFixed(1):'—';
+  document.getElementById('c-mes-d').textContent=vm+'% vs mês anterior';
+  setTimeout(()=>{document.getElementById('gauge-fill').style.width=Math.min((d.ano2026/Math.max(d.ano2025,1))*70,100)+'%';},300);
+  renderChart(chartView,d);renderTabelaMed(d);renderTermo(d);renderAlertas(d);
+}
+
+function anim(id,target,fmt=false){
+  const el=document.getElementById(id);if(!el||!target)return;
+  const dur=1600,st=performance.now();
+  function step(now){
+    const p=Math.min((now-st)/dur,1),e=1-Math.pow(1-p,3);
+    el.textContent=Math.round(target*e).toLocaleString('pt-BR');
+    if(p<1)requestAnimationFrame(step);else el.textContent=target.toLocaleString('pt-BR');
+  }
+  requestAnimationFrame(step);
+}
+
+function renderChart(view,d){
+  chartView=view;
+  const svg=document.getElementById('bar-chart');
+  const meses=view==='2026'?d.meses2026:view==='2025'?d.meses2025:d.meses2026.map((m,i)=>({mes:m.mes,v26:m.v,v25:d.meses2025[i]?.v||0}));
+  const W=700,H=180,pb=30,pt=20,pl=10,pr=10,cW=W-pl-pr,cH=H-pt-pb,n=meses.length;
+  const bW=(cW/n)*(view==='comp'?0.4:0.65);
+  const maxV=view==='comp'?Math.max(...meses.map(m=>Math.max(m.v26||0,m.v25||0)),1):Math.max(...meses.map(m=>m.v),1);
+  let html=`<line stroke="var(--bd)" stroke-width="1" x1="${pl}" y1="${pt+cH}" x2="${W-pr}" y2="${pt+cH}"/>`;
+  meses.forEach((m,i)=>{
+    const sx=pl+(cW/n)*i+(cW/n)/2;
+    if(view==='comp'){
+      const h25=((m.v25||0)/maxV)*cH,h26=((m.v26||0)/maxV)*cH;
+      html+=`<rect x="${sx-bW-1}" y="${pt+cH-h25}" width="${bW}" height="${Math.max(h25,1)}" fill="rgba(139,26,26,0.3)" rx="2"/>`;
+      html+=`<rect x="${sx+1}" y="${pt+cH-h26}" width="${bW}" height="${Math.max(h26,1)}" fill="#8B1A1A" rx="2"/>`;
+    }else{
+      const h=(m.v/maxV)*cH,peak=m.v===Math.max(...meses.map(x=>x.v));
+      html+=`<rect x="${sx-bW/2}" y="${pt+cH-Math.max(h,1)}" width="${bW}" height="${Math.max(h,1)}" fill="${peak?'#B22222':m.v===0?'rgba(139,26,26,0.12)':'rgba(139,26,26,0.65)'}" rx="2"/>`;
+      if(m.v>0)html+=`<text font-family="JetBrains Mono,monospace" font-size="9" font-weight="600" fill="var(--cr)" x="${sx}" y="${pt+cH-h-4}" text-anchor="middle">${m.v}</text>`;
+    }
+    html+=`<text font-family="JetBrains Mono,monospace" font-size="9" fill="var(--sv)" x="${sx}" y="${pt+cH+14}" text-anchor="middle">${m.mes}</text>`;
+  });
+  if(view==='comp')html+=`<rect x="10" y="5" width="10" height="8" fill="rgba(139,26,26,0.3)" rx="1"/><text font-family="JetBrains Mono,monospace" font-size="9" fill="var(--sv)" x="23" y="13">2025</text><rect x="55" y="5" width="10" height="8" fill="#8B1A1A" rx="1"/><text font-family="JetBrains Mono,monospace" font-size="9" fill="var(--sv)" x="68" y="13">2026</text>`;
+  svg.innerHTML=html;
+}
+
+function setChartView(v,btn){
+  document.querySelectorAll('#panel-medidometro .fil-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  if(medDados)renderChart(v,medDados);
+}
+
+function renderTabelaMed(d){
+  const tb=document.getElementById('med-tbody');
+  const max=Math.max(...d.meses2026.map(m=>m.v),1);
+  let h='';
+  d.meses2026.forEach((m,i)=>{
+    if(!m.v)return;
+    const prev=i>0?d.meses2026[i-1].v:d.meses2025?.[11]?.v||0;
+    const vp=prev>0?((m.v-prev)/prev*100).toFixed(1):'—';
+    const tc=parseFloat(vp)>0?'background:#FCE4EC;color:#C62828':parseFloat(vp)<0?'background:#E8F5E9;color:#2E7D32':'background:#F3F4F6;color:var(--sv)';
+    const ts=parseFloat(vp)>0?'▲':parseFloat(vp)<0?'▼':'=';
+    h+=`<tr>
+      <td style="font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--cr);font-weight:600;padding:.5rem .85rem;border-bottom:1px solid var(--bd)">${m.mes}/2026</td>
+      <td style="font-family:'JetBrains Mono',monospace;font-weight:600;color:var(--ink);font-size:.78rem;padding:.5rem .85rem;border-bottom:1px solid var(--bd)">${m.v.toLocaleString('pt-BR')}</td>
+      <td style="padding:.5rem .85rem;border-bottom:1px solid var(--bd)"><span style="font-size:.62rem;padding:.1rem .42rem;border-radius:10px;font-family:'JetBrains Mono',monospace;${tc}">${ts} ${Math.abs(parseFloat(vp))}%</span></td>
+    </tr>`;
+  });
+  tb.innerHTML=h||'<tr><td colspan="3" style="padding:1rem;text-align:center;color:var(--sv);font-style:italic">Dados indisponíveis</td></tr>';
+}
+
+function renderTermo(d){
+  const c=document.getElementById('termometro');
+  const anos=[...d.porAno].slice(-6).reverse();
+  const max=Math.max(...anos.map(a=>a.v),1);
+  const cores=['#8B1A1A','#B22222','rgba(139,26,26,0.75)','rgba(139,26,26,0.55)','rgba(139,26,26,0.4)','rgba(139,26,26,0.28)'];
+  c.innerHTML=anos.map((a,i)=>`<div style="display:flex;align-items:center;gap:.65rem;margin-bottom:.55rem">
+    <span style="font-size:.72rem;color:var(--sl);min-width:36px">${a.ano}</span>
+    <div style="flex:1;height:7px;background:#F0EDE8;border-radius:3px;overflow:hidden"><div style="width:${Math.round(a.v/max*100)}%;height:100%;background:${cores[i]};border-radius:3px"></div></div>
+    <span style="font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--cr);font-weight:600;min-width:36px;text-align:right">${a.v.toLocaleString('pt-BR')}</span>
+  </div>`).join('');
+}
+
+function renderAlertas(d){
+  const c=document.getElementById('med-alertas');
+  const vp=d.ano2025>0?((d.ano2026-d.ano2025)/d.ano2025*100):0;
+  const als=[
+    {cor:vp>10?'#E53935':vp<-10?'#4CAF50':'#FF9800',txt:`Variação de ${vp.toFixed(1)}% em 2026 vs 2025`,sub:vp>10?'Aumento expressivo na distribuição':vp<-10?'Queda — monitorar causas':'Tendência estável'},
+    {cor:'#FF9800',txt:`Total acumulado: ${d.total.toLocaleString('pt-BR')} processos`,sub:'TJAP · Classe 12066 · Desde 2006'},
+    {cor:'#4CAF50',txt:'Fonte: DATAJUD · CNJ · Res. 331/2020',sub:'Atualização diária via GitHub Actions'}
+  ];
+  c.innerHTML=als.map(a=>`<div style="display:flex;gap:.55rem;padding:.55rem 0;border-bottom:1px solid var(--bd)">
+    <span style="width:8px;height:8px;border-radius:50%;background:${a.cor};flex-shrink:0;margin-top:.22rem;display:block"></span>
+    <div><div style="font-size:.76rem;color:var(--ink);line-height:1.4">${a.txt}</div><div style="font-size:.66rem;color:var(--sv);margin-top:.06rem">${a.sub}</div></div>
+  </div>`).join('');
+}
+
+// ═══════════════════════════════════════
+// INSTAGRAM
+// ═══════════════════════════════════════
+let igFmt='card';
+const IGT={dark:{bg:'#1A1A2E',tx:'#FFFFFF',ac:'#E8C36A',sub:'rgba(255,255,255,0.65)',ft:'rgba(255,255,255,0.4)'},
+  red:{bg:'#8B1A1A',tx:'#FFFFFF',ac:'#FFEB3B',sub:'rgba(255,255,255,0.75)',ft:'rgba(255,255,255,0.45)'},
+  cream:{bg:'#FAF7F2',tx:'#1A1A2E',ac:'#8B1A1A',sub:'#4A4A6A',ft:'#8A8AAA'},
+  purple:{bg:'#4A148C',tx:'#FFFFFF',ac:'#F48FB1',sub:'rgba(255,255,255,0.7)',ft:'rgba(255,255,255,0.4)'}};
+
+function openIgModal(idx){
+  if(idx!==null){const d=DEC[idx];window._igContent={type:'juris',title:d.title,tese:d.tese,ref:d.badge,data:d.data};}
+  setFmt('card');
+  document.getElementById('ig-ov').classList.add('open');updatePrev();
+}
+function closeIg(e){if(!e||e.target===document.getElementById('ig-ov'))document.getElementById('ig-ov').classList.remove('open');}
+function setFmt(f){igFmt=f;document.getElementById('fmt-card').classList.toggle('active',f==='card');document.getElementById('fmt-car').classList.toggle('active',f==='carrossel');updatePrev();}
+
+function updatePrev(){
+  const th=IGT[document.getElementById('ig-theme').value]||IGT.dark;
+  const pf=document.getElementById('ig-profile').value||'@jurisprotege.ap';
+  const ct=window._igContent||{title:'Decisão Judicial',tese:'Tese jurídica sobre violência doméstica.',ref:'STJ',data:new Date().toLocaleDateString('pt-BR')};
+  const ar=document.getElementById('ig-prev');
+  const sc=(bg,tx,sub,ft)=>`background:${bg};color:${tx}`;
+  if(igFmt==='card'){
+    ar.innerHTML=`<div class="slide-prev"><div class="slide-c" style="${sc(th.bg)}">
+      <div><div class="slide-logo" style="color:${th.ft}">${pf} · JurisProtege</div>
+      <div class="slide-lbl" style="color:${th.ac}">⚖️ VIOLÊNCIA DOMÉSTICA</div>
+      <div class="slide-t" style="color:${th.tx}">${ct.title}</div></div>
+      <div><div class="slide-b" style="color:${th.sub}">${ct.tese.substring(0,160)}…</div>
+      <div class="slide-f" style="color:${th.ft}">${ct.ref} · ${ct.data}</div></div>
+    </div></div>`;
+  }else{
+    const sls=[{l:'⚖️ DECISÃO',t:ct.title,b:'Saiba o que os Tribunais Superiores decidiram.'},{l:'📋 TESE',t:'O que foi decidido?',b:ct.tese.substring(0,180)+'…'},{l:'📌 FUNDAMENTOS',t:'Base legal aplicada',b:'Confira os fundamentos e referências desta decisão.'},{l:'💡 IMPACTO',t:'Para a prática jurídica',b:'Entenda o impacto na proteção às vítimas.'}];
+    ar.innerHTML=sls.map((s,i)=>`<div class="slide-prev"><div class="slide-c" style="${sc(th.bg)};min-height:110px">
+      <span class="slide-n" style="color:${th.ft}">${i+1}/${sls.length}</span>
+      <div><div class="slide-lbl" style="color:${th.ac}">${s.l}</div><div class="slide-t" style="color:${th.tx};font-size:.82rem">${s.t}</div></div>
+      <div><div class="slide-b" style="color:${th.sub}">${s.b}</div><div class="slide-f" style="color:${th.ft}">${pf}</div></div>
+    </div></div>`).join('');
+  }
+}
+
+async function genCaption(){
+  const ct=window._igContent||{title:'Decisão judicial',tese:'',ref:'',data:''};
+  const tone=document.getElementById('ig-tone').value;
+  const cap=document.getElementById('cap-txt');
+  cap.innerHTML='<span class="spin" style="border-top-color:var(--cr);border-color:var(--bd)"></span> Gerando<span class="ldots"></span>';
+  const ti={juridico:'Linguagem jurídica formal, citando normas.',educativo:'Linguagem clara e acessível ao público geral.',alerta:'Tom urgente e de alerta para proteção das vítimas.',conscientizacao:'Tom empático de conscientização social.'};
+  try{
+    const r=await fetch("https://api.anthropic.com/v1/messages",{method:"POST",headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({model:"claude-sonnet-4-20250514",max_tokens:1000,
+        system:`Especialista em comunicação jurídica digital. ${ti[tone]} Inclua hashtags no final. Responda APENAS com o texto da legenda.`,
+        messages:[{role:"user",content:`Legenda para Instagram sobre:\nTítulo: ${ct.title}\nConteúdo: ${ct.tese}\nReferência: ${ct.ref} · ${ct.data}\nInclua: introdução impactante, desenvolvimento, chamada para ação e hashtags (#LeiMariaDaPenha #ViolênciaDoméstica + outras). Máx. 2200 caracteres.`}]})});
+    const d=await r.json();
+    cap.textContent=d.content?.map(i=>i.text||'').join('')||'Erro ao gerar.';
+  }catch(e){cap.textContent='Erro: '+e.message;}
+}
+
+function copyCap(){
+  const tx=document.getElementById('cap-txt').textContent;
+  navigator.clipboard?.writeText(tx).then(()=>toast('Legenda copiada!')).catch(()=>prompt('Copie:',tx));
+}
+
+// ═══════════════════════════════════════
+// UTILS
+// ═══════════════════════════════════════
+function toast(msg){
+  const t=document.createElement('div');
+  t.style.cssText='position:fixed;bottom:2rem;right:2rem;background:var(--ink);color:#fff;padding:.7rem 1.1rem;border-radius:6px;font-size:.8rem;z-index:999;box-shadow:0 4px 20px rgba(0,0,0,.3);border-left:3px solid var(--gdl)';
+  t.textContent=msg;document.body.appendChild(t);setTimeout(()=>t.remove(),2500);
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeMod();closeIg();}});
+document.getElementById('lu-time').textContent=new Date().toLocaleDateString('pt-BR')+' — 06h00';
+document.getElementById('news-date').textContent=new Date().toLocaleDateString('pt-BR',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+</script>
+</body>
+</html>
